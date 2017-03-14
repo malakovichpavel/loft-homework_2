@@ -7,14 +7,22 @@ function asd($var1, $var2=false)
 {
     if ($var2=true) {
         for  ($i=0; $i<=2; $i++) {
-            echo $var1[$i] . ' ';}
+            echo $var1[$i] . ' ';
+            }
     }
-    else for  ($i=0; $i<=2; $i++) {
-        echo '<p>' .  $var1[$i] . '<p>';
+    else  {
+        echo '<p>' .  $var1 . '<p>';
+        return;
     }
-    /*echo "<pre>";
+    /*Если в функцию передан второй параметр true,
+то возвращать (через return) результат в виде одной объединенной строки
+    echo "<pre>";
     var_dump($var1);
-    var_dump($var2);*/
+    var_dump($var2);
+   вот этом кусочке неверное for  ($i=0; $i<=2; $i++) {
+            echo $var1[$i] . ' ';}
+    Здесь нужно склеить всё в одну строку без echo и потом эту строку уже склеенную сделать return
+    у тебя используется echo внутри цикла, а нужно использовать return и вне цикла*/
 }
 asd(array('слово', 'второе', 'третье'), true);
 
@@ -162,23 +170,27 @@ function ex4($var1, $var2)
 echo ex4(2, 5.1);
 
 echo "<h3>" . "Задание #5" ."</h3>";
-$string5 = "Кит на море романтик";
-echo $string5 . "<br>";
-$string5 = mb_strtolower($string5); //нижний регистр
-$string5 = str_replace(' ', '', $string5); // убираем пробелы
-print_r($string5);
-echo "<br>";
-$chars = preg_split('//u', $string5, null, PREG_SPLIT_NO_EMPTY); //разрываем по буквам
-print_r($chars);
-echo "<br>";
-$my_array_rev = array_reverse($chars); //разворачиваем строку
-function p1()
+//Тут должно быть две функции. Сейчас только одна и код вне функции
+function p1() {
+    $string5 = "Кит на море романтик";
+    echo $string5 . "<br>";
+    $string5 = mb_strtolower($string5); //нижний регистр
+    $string5 = str_replace(' ', '', $string5); // убираем пробелы
+    print_r($string5);
+    echo "<br>";
+    $chars = preg_split('//u', $string5, null, PREG_SPLIT_NO_EMPTY); //разрываем по буквам
+    print_r($chars);
+    echo "<br>";
+    $my_array_rev = array_reverse($chars); //разворачиваем строку
+}
+p1 ($my_array_rev);
+function p2()
     {
     if ($chars=$my_array_rev=TRUE) {
         echo "TRUE - Строка является палиндромом" . "<br>";
     } else echo "FALSE - Строка не является палиндромом" . "<br>";
 }
-p1 ($chars);
+p2 ($chars);
 
 echo "<h3>" . "Задание #6" ."</h3>";
 

@@ -1,0 +1,14 @@
+body{
+	background-image: url(bg6.jpg);
+}
+a { 
+    text-decoration: none; /* Отменяем подчеркивание у ссылки */
+   } 
+
+.fon {
+    background-color: #FFCE42;
+   }
+content button:hover {
+    background: #4CAF50;
+    color: #FFCE42;
+}
